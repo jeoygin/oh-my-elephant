@@ -124,7 +124,16 @@
 (require 'init-dash)
 (require 'init-ledger)
 
-(nutxell/init-features '(clipboard evil ivy helm gtags ycmd cc-mode))
+(nutxell/init-features '(
+                         clipboard
+                         linum-mode
+                         mode-line
+                         evil
+                         ivy
+                         helm
+                         gtags
+                         ycmd
+                         cc-mode))
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
