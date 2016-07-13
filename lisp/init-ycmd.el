@@ -20,10 +20,12 @@
 (when (maybe-require-package 'flycheck-ycmd)
   (after-load 'ycmd
     (after-load 'flycheck
+      (require 'flycheck-ycmd)
       ;; Make sure the flycheck cache sees the parse results
-      ;; (add-hook 'ycmd-file-parse-result-hook 'flycheck-ycmd--cache-parse-results)
+      (add-hook 'ycmd-file-parse-result-hook 'flycheck-ycmd--cache-parse-results)
+
       ;; Add the ycmd checker to the list of available checkers
-      ;; (add-to-list 'flycheck-checkers 'ycmd)
+      (add-to-list 'flycheck-checkers 'ycmd)
 
       (add-hook 'python-mode-hook
                 (lambda () (add-to-list 'flycheck-disabled-checkers 'ycmd))))))
