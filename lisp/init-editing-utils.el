@@ -308,12 +308,19 @@ With arg N, insert N newlines."
 (hes-mode)
 
 
-(require-package 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "M-s" "C-h"))
+(require-package 'which-key)
+(which-key-setup-side-window-bottom)
+(setq which-key-special-keys nil
+      which-key-use-C-h-for-paging t
+      which-key-prevent-C-h-from-cycling t
+      which-key-echo-keystrokes 0.02
+      which-key-max-description-length 32
+      which-key-sort-order 'which-key-key-order-alpha
+      which-key-allow-evil-operators t)
 (add-hook 'after-init-hook
           (lambda ()
-            (guide-key-mode 1)
-            (diminish 'guide-key-mode)))
+            (which-key-mode 1)
+            (diminish 'which-key-mode)))
 
 
 (provide 'init-editing-utils)
