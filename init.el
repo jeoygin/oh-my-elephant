@@ -33,6 +33,7 @@
 ;; Calls (package-initialize)
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path) ;; Set up $PATH
+(require 'init-feature-functions) ;; Define nutxell/init-<feature> functions
 
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-preload-local.el"
@@ -122,6 +123,8 @@
 (require 'init-folding)
 (require 'init-dash)
 (require 'init-ledger)
+
+(nutxell/init-features '(clipboard evil ivy helm gtags ycmd cc-mode))
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
