@@ -7,6 +7,7 @@
 
   ;; Shorter modeline
   (after-load 'projectile
+    (diminish 'projectile-mode)
     (setq-default
      projectile-mode-line
      '(:eval

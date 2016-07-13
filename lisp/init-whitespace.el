@@ -22,6 +22,9 @@
 (require-package 'whitespace-cleanup-mode)
 (global-whitespace-cleanup-mode t)
 
+(after-load 'whitespace-cleanup-mode
+  (diminish 'whitespace-cleanup-mode))
+
 (global-set-key [remap just-one-space] 'cycle-spacing)
 
 

@@ -9,6 +9,7 @@
 
 (when (maybe-require-package 'ycmd)
   (after-load 'ycmd
+    (diminish 'ycmd-mode " YC")
     (add-hook 'ycmd-mode-hook #'ycmd-setup-completion-at-point-function)))
 
 (when (maybe-require-package 'company-ycmd)
