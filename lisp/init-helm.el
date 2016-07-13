@@ -32,8 +32,4 @@
   (after-load 'helm
     (global-set-key (kbd "C-c h g") 'helm-ag)))
 
-(when (maybe-require-package 'helm-gtags)
-  (after-load 'helm
-    (global-set-key (kbd "C-c h g") 'helm-ag)))
-
 (provide 'init-helm)
