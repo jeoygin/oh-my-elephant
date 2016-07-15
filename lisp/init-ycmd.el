@@ -4,8 +4,9 @@
             #'ycmd-complete-at-point nil :local))
 
 (setq ycmd-config-path (expand-file-name "global_conf.py" (file-name-directory user-init-file)))
-  (when (file-exists-p ycmd-config-path)
-    (setq-default ycmd-global-config ycmd-config-path))
+(when (file-exists-p ycmd-config-path)
+  (setq-default ycmd-global-config ycmd-config-path))
+(setq-default ycmd-extra-conf-handler 'load)
 
 (when (maybe-require-package 'ycmd)
   (after-load 'ycmd
@@ -15,6 +16,8 @@
 (when (maybe-require-package 'company-ycmd)
   (after-load 'ycmd
     (after-load 'company
+      (nutxell/defun-toggle-company-backend company-ycmd)
+      (define-key company-mode-map (kbd "C-c Y b") 'nutxell/company-toggle-company-ycmd)
       (add-hook 'ycmd-mode-hook
                 (lambda () (sanityinc/local-push-company-backend 'company-ycmd))))))
 

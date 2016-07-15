@@ -21,6 +21,15 @@
       (define-key company-quickhelp-mode-map (kbd "M-h") nil))
     (add-hook 'company-mode-hook 'company-quickhelp-mode))
 
+  (defmacro nutxell/defun-toggle-company-backend (backend)
+    "Push or delete the backend to company-backends"
+    (let ((funsymbol (intern (format "nutxell/company-toggle-%S" backend))))
+      `(defun ,funsymbol ()
+         (interactive)
+         (if (eq (car company-backends) ',backend)
+             (setq-local company-backends (delete ',backend company-backends))
+           (push ',backend company-backends)))))
+
   (defun sanityinc/local-push-company-backend (backend)
     "Add BACKEND to a buffer-local version of `company-backends'."
     (set (make-local-variable 'company-backends)

@@ -33,9 +33,6 @@
       (define-key helm-gtags-mode-map (kbd "C-c g S") 'helm-gtags-show-stack)
       (define-key helm-gtags-mode-map (kbd "C-c g u") 'helm-gtags-update-tags))))
 
-(when (maybe-require-package 'ggtags)
-  (after-load 'company
-    (add-hook 'helm-gtags-mode-hook
-              (lambda () (sanityinc/local-push-company-backend 'company-gtags)))))
+(require-package 'ggtags)
 
 (provide 'init-gtags)
