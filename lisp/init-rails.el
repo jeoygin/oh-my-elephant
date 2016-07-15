@@ -14,5 +14,4 @@
     (after-load 'guide-key
       (add-to-list 'guide-key/guide-key-sequence "C-c r"))))
 
-
 (provide 'init-rails)
