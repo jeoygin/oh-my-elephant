@@ -33,6 +33,7 @@
 ;; Calls (package-initialize)
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path) ;; Set up $PATH
+(require 'init-general)
 (require 'init-feature-functions) ;; Define nutxell/init-<feature> functions
 
 ;;----------------------------------------------------------------------------

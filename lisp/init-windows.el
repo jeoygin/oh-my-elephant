@@ -91,5 +91,7 @@ Call a second time to restore the original window configuration."
 (unless (memq window-system '(nt w32))
   (windmove-default-keybindings 'control))
 
+(when (maybe-require-package 'window-numbering)
+  (window-numbering-mode 1))
 
 (provide 'init-windows)
