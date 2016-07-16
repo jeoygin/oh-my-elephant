@@ -27,8 +27,22 @@
      "7" 'select-window-7
      "8" 'select-window-8
      "9" 'select-window-9
+
      "/c" 'company-complete
      "/h" 'hippie-expand
+
+     "fc" 'copy-file
+     "ff" 'counsel-find-file
+     "fF" 'helm-find-files
+     "fj" 'dired-jump
+     "fr" 'ivy-recentf
+     "fR" 'rename-file
+     "fs" 'save-buffer
+
+     "pb" 'counsel-projectile-switch-to-buffer
+     "pd" 'counsel-projectile-find-dir
+     "pf" 'counsel-projectile-find-file
+
      "me" 'mc/edit-lines))
 
 (require 'evil)
