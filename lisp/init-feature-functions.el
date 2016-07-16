@@ -8,7 +8,13 @@
   (let ((feature-name (replace-regexp-in-string "^init-\\(.+\\)\\.el$" "\\1" file)))
     (eval (macroexpand `(create-init-feature-defun ,feature-name)))))
 
-(defun nutxell/init-features (feature-list)
+(defun require-features (feature-list)
+  (interactive)
+  (when (listp features)
+    (dolist (f (append feature-list '()))
+      (require f))))
+
+(defun init-features (feature-list)
   (interactive)
   (if (listp features)
     (dolist (f (append feature-list '()))

@@ -1,4 +1,4 @@
-(nutxell/init-features '(helm company flycheck gtags ycmd))
+(init-features '(helm company flycheck gtags ycmd))
 
 (require-package 'company-c-headers)
 

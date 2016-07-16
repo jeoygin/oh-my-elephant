@@ -1,0 +1,5 @@
+(when (maybe-require-package 'idle-require)
+  (require 'idle-require)
+  (setq idle-require-idle-delay 1)
+  (setq idle-require-load-break 0.01))
+(provide 'init-idle-require)

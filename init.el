@@ -35,6 +35,7 @@
 (require 'init-exec-path) ;; Set up $PATH
 (require 'init-general)
 (require 'init-feature-functions) ;; Define nutxell/init-<feature> functions
+(require 'init-idle-require)
 
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-preload-local.el"
@@ -61,80 +62,81 @@
 (require 'init-grep)
 (require 'init-uniquify)
 (require 'init-ibuffer)
-(require 'init-flycheck)
-
 (require 'init-recentf)
 (require 'init-smex)
 ;; If you really prefer ido to ivy, change the comments below. I will
 ;; likely remove the ido config in due course, though.
 ;; (require 'init-ido)
 (require 'init-ivy)
+
+(idle-require 'init-helm)
+
 (require 'init-hippie-expand)
 (require 'init-company)
-(require 'init-windows)
+(require 'init-flycheck)
 (require 'init-sessions)
-(require 'init-fonts)
-(require 'init-mmm)
+(require 'init-linum-mode)
+(require 'init-mode-line)
 
-(require 'init-editing-utils)
-(require 'init-whitespace)
-(require 'init-fci)
+(idle-require 'init-windows)
+(idle-require 'init-fonts)
+(idle-require 'init-mmm)
 
-(require 'init-vc)
-(require 'init-darcs)
-(require 'init-git)
-(require 'init-github)
+(idle-require 'init-editing-utils)
+(idle-require 'init-whitespace)
+(idle-require 'init-fci)
+(idle-require 'init-clipboard)
 
-(require 'init-projectile)
+(idle-require 'init-evil)
+(idle-require 'init-gtags)
+(idle-require 'init-ycmd)
 
-(require 'init-compile)
-(require 'init-crontab)
-(require 'init-textile)
-(require 'init-markdown)
-(require 'init-csv)
-(require 'init-erlang)
-(require 'init-javascript)
-(require 'init-php)
-(require 'init-org)
-(require 'init-nxml)
-(require 'init-html)
-(require 'init-css)
-(require 'init-haml)
-(require 'init-python-mode)
+(idle-require 'init-vc)
+(idle-require 'init-darcs)
+(idle-require 'init-git)
+(idle-require 'init-github)
+ 
+(idle-require 'init-projectile)
+
+(idle-require 'init-compile)
+(idle-require 'init-crontab)
+(idle-require 'init-textile)
+(idle-require 'init-markdown)
+(idle-require 'init-org)
+(idle-require 'init-csv)
+(idle-require 'init-cc-mode)
+(idle-require 'init-erlang)
+(idle-require 'init-javascript)
+(idle-require 'init-php)
+(idle-require 'init-nxml)
+(idle-require 'init-html)
+(idle-require 'init-css)
+(idle-require 'init-haml)
+(idle-require 'init-python-mode)
 (unless (version<= emacs-version "24.3")
-  (require 'init-haskell))
-(require 'init-elm)
-(require 'init-ruby-mode)
-(require 'init-rails)
-(require 'init-sql)
+  (idle-require 'init-haskell))
+(idle-require 'init-elm)
+(idle-require 'init-ruby-mode)
+(idle-require 'init-rails)
+(idle-require 'init-sql)
 
-(require 'init-paredit)
-(require 'init-lisp)
-(require 'init-slime)
+(idle-require 'init-paredit)
+(idle-require 'init-lisp)
+(idle-require 'init-slime)
 (unless (version<= emacs-version "24.2")
-  (require 'init-clojure)
-  (require 'init-clojure-cider))
-(require 'init-common-lisp)
+  (idle-require 'init-clojure)
+  (idle-require 'init-clojure-cider))
+(idle-require 'init-common-lisp)
 
 (when *spell-check-support-enabled*
-  (require 'init-spelling))
+  (idle-require 'init-spelling))
 
-(require 'init-misc)
+(idle-require 'init-misc)
 
-(require 'init-folding)
-(require 'init-dash)
-(require 'init-ledger)
+(idle-require 'init-folding)
+(idle-require 'init-dash)
+(idle-require 'init-ledger)
 
-(nutxell/init-features '(
-                         clipboard
-                         linum-mode
-                         mode-line
-                         evil
-                         ivy
-                         helm
-                         gtags
-                         ycmd
-                         cc-mode))
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
@@ -145,6 +147,7 @@
   (require-package 'osx-location))
 (require-package 'regex-tool)
 
+(idle-require-mode 1) ;; starts loading
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
