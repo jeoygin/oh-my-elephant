@@ -40,8 +40,8 @@
   (when (maybe-require-package 'diminish)
     (after-load 'counsel
       (diminish 'counsel-mode)))
+  (require-package 'counsel-projectile)
   (add-hook 'after-init-hook 'counsel-mode))
-
 
 (when (maybe-require-package 'swiper)
   (after-load 'ivy
