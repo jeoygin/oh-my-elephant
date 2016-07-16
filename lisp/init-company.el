@@ -13,6 +13,7 @@
     (diminish 'company-mode " ⓐ")
     (define-key company-mode-map (kbd "M-/") 'company-complete)
     (define-key company-active-map (kbd "M-/") 'company-select-next)
+    (setq company-idle-delay 0.8)
     (setq-default company-backends '((company-capf company-dabbrev-code) company-dabbrev)
                   company-dabbrev-other-buffers 'all))
   (global-set-key (kbd "M-C-/") 'company-complete)
