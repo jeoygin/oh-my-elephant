@@ -10,7 +10,7 @@
   (define-key evil-insert-state-map "\C-v" 'scroll-up-command)
   (define-key evil-insert-state-map "\M-v" 'scroll-down-command)
   (define-key evil-insert-state-map "\C-d" 'delete-forward-char)
-  (define-key evil-insert-state-map "\M-d" 'forward-kill-word)
+  (define-key evil-insert-state-map "\M-d" 'kill-word)
   (define-key evil-insert-state-map "\C-k" 'kill-line)
   (define-key evil-insert-state-map "\C-w" 'kill-region)
   (define-key evil-insert-state-map "\C-y" 'yank)
@@ -27,6 +27,8 @@
      "7" 'select-window-7
      "8" 'select-window-8
      "9" 'select-window-9
+     "/c" 'company-complete
+     "/h" 'hippie-expand
      "me" 'mc/edit-lines))
 
 (require 'evil)
