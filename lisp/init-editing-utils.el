@@ -317,10 +317,7 @@ With arg N, insert N newlines."
       which-key-max-description-length 32
       which-key-sort-order 'which-key-key-order-alpha
       which-key-allow-evil-operators t)
-(add-hook 'after-init-hook
-          (lambda ()
-            (which-key-mode 1)
-            (diminish 'which-key-mode)))
-
+(which-key-mode 1)
+(diminish 'which-key-mode)
 
 (provide 'init-editing-utils)

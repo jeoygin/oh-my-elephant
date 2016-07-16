@@ -78,16 +78,16 @@
 (require 'init-linum-mode)
 (require 'init-mode-line)
 
-(idle-require 'init-windows)
-(idle-require 'init-fonts)
-(idle-require 'init-mmm)
+(require 'init-windows)
+(require 'init-fonts)
+(require 'init-mmm)
 
+(idle-require 'init-evil)
+(idle-require 'init-clipboard)
 (idle-require 'init-editing-utils)
 (idle-require 'init-whitespace)
 (idle-require 'init-fci)
-(idle-require 'init-clipboard)
 
-(idle-require 'init-evil)
 (idle-require 'init-gtags)
 (idle-require 'init-ycmd)
 
@@ -96,7 +96,7 @@
 (idle-require 'init-git)
 (idle-require 'init-github)
  
-(idle-require 'init-projectile)
+(require 'init-projectile)
 
 (idle-require 'init-compile)
 (idle-require 'init-crontab)
