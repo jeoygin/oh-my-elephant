@@ -58,6 +58,7 @@
 (require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-dired)
+(require 'init-ranger)
 (require 'init-isearch)
 (require 'init-grep)
 (require 'init-uniquify)
