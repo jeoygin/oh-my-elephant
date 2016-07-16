@@ -7,8 +7,9 @@
 
 (maybe-require-package 'org-cliplink)
 
-(define-key global-map (kbd "C-c l") 'org-store-link)
-(define-key global-map (kbd "C-c a") 'org-agenda)
+(after-load 'org
+  (define-key org-mode-map (kbd "C-c l") 'org-store-link)
+  (define-key org-mode-map (kbd "C-c a") 'org-agenda))
 
 ;; Various preferences
 (setq org-log-done t
@@ -88,7 +89,8 @@ typical word processor."
 
 ;;; Capturing
 
-(global-set-key (kbd "C-c c") 'org-capture)
+(after-load 'org
+  (define-key org-mode-map (kbd "C-c c") 'org-capture))
 
 (setq org-capture-templates
       `(("t" "todo" entry (file "")  ; "" => org-default-notes-file
