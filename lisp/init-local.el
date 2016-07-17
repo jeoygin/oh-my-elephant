@@ -5,6 +5,9 @@
 
 (setq ad-redefinition-action 'accept)
 
+(setq chinese-default-input-method 'pinyin)
+(setq chinese-pinyin-load-greatdict t)
+
 (diminish 'abbrev-mode)
 
 (provide 'init-local)

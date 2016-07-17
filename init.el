@@ -91,6 +91,7 @@
 (idle-require 'init-editing-utils)
 (idle-require 'init-whitespace)
 (idle-require 'init-fci)
+(idle-require 'init-chinese)
 
 (idle-require 'init-gtags)
 (idle-require 'init-ycmd)

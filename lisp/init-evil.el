@@ -13,39 +13,62 @@
   (define-key evil-insert-state-map "\M-d" 'kill-word)
   (define-key evil-insert-state-map "\C-k" 'kill-line)
   (define-key evil-insert-state-map "\C-w" 'kill-region)
-  (define-key evil-insert-state-map "\C-y" 'yank)
+  (define-key evil-insert-state-map "\C-y" 'yank))
 
-  (nvmap
-     :prefix "<SPC>"
-     "0" 'select-window-0
-     "1" 'select-window-1
-     "2" 'select-window-2
-     "3" 'select-window-3
-     "4" 'select-window-4
-     "5" 'select-window-5
-     "6" 'select-window-6
-     "7" 'select-window-7
-     "8" 'select-window-8
-     "9" 'select-window-9
+(after-load 'evil
+  (nvmap :prefix "<SPC>"
+         "0" 'select-window-0
+         "1" 'select-window-1
+         "2" 'select-window-2
+         "3" 'select-window-3
+         "4" 'select-window-4
+         "5" 'select-window-5
+         "6" 'select-window-6
+         "7" 'select-window-7
+         "8" 'select-window-8
+         "9" 'select-window-9
 
-     "/c" 'company-complete
-     "/h" 'hippie-expand
+         "C-c" 'copy-to-x-clipboard
+         "C-v" 'paste-from-x-clipboard
+         "C-d" 'duplicate-current-line
 
-     "fb" 'browse-current-file
-     "fc" 'copy-file
-     "ff" 'counsel-find-file
-     "fF" 'helm-find-files
-     "fj" 'dired-jump
-     "fo" 'open-current-file
-     "fr" 'ivy-recentf
-     "fR" 'rename-this-file-and-buffer
-     "fs" 'save-buffer
+         "/c" 'company-complete
+         "/h" 'hippie-expand
 
-     "pb" 'counsel-projectile-switch-to-buffer
-     "pd" 'counsel-projectile-find-dir
-     "pf" 'counsel-projectile-find-file
+         "fb" 'browse-current-file
+         "fc" 'copy-file
+         "ff" 'counsel-find-file
+         "fF" 'helm-find-files
+         "fj" 'dired-jump
+         "fo" 'open-current-file
+         "fr" 'ivy-recentf
+         "fR" 'rename-this-file-and-buffer
+         "fs" 'save-buffer
 
-     "me" 'mc/edit-lines))
+         "gi" 'magit-init
+         "gl" 'magit-log
+         "gs" 'magit-status
+
+         "hs" 'helm-ag
+         "ho" 'helm-swoop
+
+         "is" 'counsel-ag
+
+         "me" 'mc/edit-lines
+
+         "pb" 'counsel-projectile-switch-to-buffer
+         "pd" 'counsel-projectile-find-dir
+         "pf" 'counsel-projectile-find-file
+         "pp" 'projectile-switch-project
+         "pq" 'projectile-switch-open-project
+         "ps" 'projectile-ag
+
+         "sh" 'helm-ag
+         "sH" 'highlight-symbol
+         "si" 'counsel-ag
+         "sp" 'projectile-ag
+         "ss" 'swiper-region-or-symbol
+         "sS" 'helm-swoop))
 
 (require 'evil)
 
