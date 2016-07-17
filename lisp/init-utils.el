@@ -72,4 +72,21 @@
       (browse-url (concat "file://" file-name)))))
 
 
+;;----------------------------------------------------------------------------
+;; Open current file
+;;----------------------------------------------------------------------------
+(defun open-current-file ()
+  "Open the current file in external application."
+  (interactive)
+  (let ((file-path (if (eq major-mode 'dired-mode)
+                       (dired-get-file-for-visit)
+                     (buffer-file-name))))
+    (if file-path
+        (cond
+         (*is-a-mswindows* (w32-shell-execute "open" (replace-regexp-in-string "/" "\\\\" file-path)))
+         (*is-a-mac* (shell-command (format "open \"%s\"" file-path)))
+         (*is-a-linux* (let ((process-connection-type nil))
+                              (start-process "" nil "xdg-open" file-path))))
+      (message "No file associated to this buffer."))))
+
 (provide 'init-utils)

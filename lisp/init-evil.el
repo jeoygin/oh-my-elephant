@@ -31,12 +31,14 @@
      "/c" 'company-complete
      "/h" 'hippie-expand
 
+     "fb" 'browse-current-file
      "fc" 'copy-file
      "ff" 'counsel-find-file
      "fF" 'helm-find-files
      "fj" 'dired-jump
+     "fo" 'open-current-file
      "fr" 'ivy-recentf
-     "fR" 'rename-file
+     "fR" 'rename-this-file-and-buffer
      "fs" 'save-buffer
 
      "pb" 'counsel-projectile-switch-to-buffer
