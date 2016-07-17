@@ -87,11 +87,11 @@
   (forward-line -1)
   (indent-according-to-mode))
 
-(global-set-key (kbd "C-c c") 'copy-to-x-clipboard)
-(global-set-key (kbd "C-c v") 'paste-from-x-clipboard)
-(global-set-key (kbd "C-c y") 'copy-line)
-(global-set-key (kbd "C-c d") 'duplicate-current-line)
-(global-set-key (kbd "C-c k") 'kill-whole-line)
+(global-set-key (kbd "C-c C-c") 'copy-to-x-clipboard)
+(global-set-key (kbd "C-c C-v") 'paste-from-x-clipboard)
+(global-set-key (kbd "C-c C-y") 'copy-line)
+(global-set-key (kbd "C-c C-d") 'duplicate-current-line)
+(global-set-key (kbd "C-c C-k") 'kill-whole-line)
 (global-set-key (kbd "M-RET") 'smart-open-line)
 (global-set-key (kbd "M-o") 'smart-open-line-above)
 
