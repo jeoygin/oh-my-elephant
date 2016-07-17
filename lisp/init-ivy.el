@@ -43,8 +43,18 @@
   (require-package 'counsel-projectile)
   (add-hook 'after-init-hook 'counsel-mode))
 
+(defun swiper-region-or-symbol ()
+  "Run `swiper' with the selected region or the symbol
+around point as the initial input."
+  (interactive)
+  (let ((input (if (region-active-p)
+                   (buffer-substring-no-properties
+                     (region-beginning) (region-end))
+                 (thing-at-point 'symbol t))))
+    (swiper input)))
+
 (when (maybe-require-package 'swiper)
   (after-load 'ivy
-    (define-key ivy-mode-map (kbd "C-s") 'swiper)))
+    (define-key ivy-mode-map (kbd "C-s") 'swiper-region-or-symbol)))
 
 (provide 'init-ivy)
