@@ -2,6 +2,9 @@
 
 (require-package 'company-c-headers)
 
+(when (maybe-require-package 'cc-mode)
+  (add-to-list 'auto-mode-alist `("\\.h$" . c++-mode)))
+
 (defun my-common-cc-mode-setup ()
   (setq c-basic-offset 4)
   (sanityinc/local-push-company-backend '(company-c-headers
