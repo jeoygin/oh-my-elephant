@@ -160,6 +160,11 @@
 (global-set-key (kbd "C-x C-.") 'pop-global-mark)
 
 (when (maybe-require-package 'avy)
+  (global-set-key (kbd "C-c cp") 'avy-copy-line)
+  (global-set-key (kbd "C-c jc") 'avy-goto-char)
+  (global-set-key (kbd "C-c jw") 'avy-goto-word-or-subword-1)
+  (global-set-key (kbd "C-c J") 'avy-goto-word-or-subword-1)
+  (global-set-key (kbd "C-c jl") 'avy-goto-line)
   (global-set-key (kbd "C-;") 'avy-goto-word-or-subword-1))
 
 (when (maybe-require-package 'multiple-cursors)
@@ -321,5 +326,9 @@ With arg N, insert N newlines."
       which-key-allow-evil-operators t)
 (which-key-mode 1)
 (diminish 'which-key-mode)
+
+(when (maybe-require-package 'zop-to-char)
+  (global-set-key [remap zap-to-char] 'zop-to-char)  
+  (global-set-key [remap zap-up-to-char] 'zop-up-to-char))
 
 (provide 'init-editing-utils)
