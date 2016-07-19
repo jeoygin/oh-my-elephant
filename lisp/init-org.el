@@ -90,7 +90,7 @@ typical word processor."
 ;;; Capturing
 
 (after-load 'org
-  (define-key org-mode-map (kbd "C-c c") 'org-capture))
+  (define-key org-mode-map (kbd "C-c C") 'org-capture))
 
 (setq org-capture-templates
       `(("t" "todo" entry (file "")  ; "" => org-default-notes-file

@@ -30,9 +30,10 @@
          "8" 'select-window-8
          "9" 'select-window-9
 
-         "C-c" 'copy-to-x-clipboard
-         "C-v" 'paste-from-x-clipboard
-         "C-d" 'duplicate-current-line
+         "yy" 'copy-to-x-clipboard
+         "P" 'paste-from-x-clipboard
+         "D" 'duplicate-current-line
+         "Y" 'avy-copy-line
 
          "/c" 'company-complete
          "/h" 'hippie-expand
@@ -55,6 +56,10 @@
          "ho" 'helm-swoop
 
          "is" 'counsel-ag
+
+         "jc" 'avy-goto-char
+         "jw" 'avy-goto-word-or-subword-1
+         "J" 'avy-goto-word-or-subword-1
 
          "me" 'mc/edit-lines
 
