@@ -89,4 +89,15 @@
                               (start-process "" nil "xdg-open" file-path))))
       (message "No file associated to this buffer."))))
 
+;;----------------------------------------------------------------------------
+;; Switch to previous buffer
+;;----------------------------------------------------------------------------
+(defun switch-to-previous-buffer ()
+  "Switch to previously open buffer.
+Repeated invocations toggle between the two most recently open buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+(global-set-key (kbd "C-c <SPC>") 'switch-to-previous-buffer)
+
 (provide 'init-utils)
