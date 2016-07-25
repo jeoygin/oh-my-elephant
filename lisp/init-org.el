@@ -150,6 +150,16 @@ typical word processor."
       (quote (("NEXT" :inherit warning)
               ("PROJECT" :inherit font-lock-string-face))))
 
+
+;;; Tag settins
+
+(setq org-tag-alist '((:startgroup . nil)
+                      ("@office" . ?w) ("@home" . ?h)
+                      ("@gym" . ?t) ("@outside" . ?o)
+                      (:endgroup . nil)
+                      ("laptop" . ?l) ("PC" . ?p) ("phone" . ?m)
+                      ("family" . ?f) ("shopping" . ?s)
+                      ("call" . ?c) ("errands" . ?e) ("urgent" . ?u)))
 
 
 ;;; Agenda views
