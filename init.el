@@ -74,6 +74,7 @@
 (require 'init-ivy)
 
 (idle-require 'init-helm)
+(idle-require 'init-keyfreq)
 
 (require 'init-hippie-expand)
 (require 'init-company)
