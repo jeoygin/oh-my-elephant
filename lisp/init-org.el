@@ -85,7 +85,7 @@ typical word processor."
 ;;(add-hook 'org-mode-hook 'buffer-face-mode)
 
 
-(setq org-support-shift-select t)
+;; (setq org-support-shift-select t)
 
 ;;; Capturing
 
