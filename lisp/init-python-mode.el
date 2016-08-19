@@ -14,5 +14,16 @@
       (add-hook 'python-mode-hook
                 (lambda () (sanityinc/local-push-company-backend 'company-anaconda))))))
 
+(defun my-python-mode-hook ()
+  (after-load 'company
+    (company-mode t))
+  (after-load 'helm
+    (helm-mode t))
+  (after-load 'helm-gtags
+    (helm-gtags-mode t))
+  (after-load 'ycmd
+    (ycmd-mode t)))
+
+(add-hook 'python-mode-hook 'my-python-mode-hook)
 
 (provide 'init-python-mode)
