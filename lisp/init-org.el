@@ -93,10 +93,14 @@ typical word processor."
   (define-key org-mode-map (kbd "C-c C") 'org-capture))
 
 (setq org-capture-templates
-      `(("t" "todo" entry (file "")  ; "" => org-default-notes-file
-         "* NEXT %?\n%U\n" :clock-resume t)
-        ("n" "note" entry (file "")
-         "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
+      `(("t" "todo" entry (file+headline "" "Tasks")  ; "" => org-default-notes-file
+         "* TODO %?\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
+        ("n" "note" entry (file+headline "" "Notes")
+         "* %? :NOTE:\n  %i\n  %a\n" :clock-resume t)
+        ("j" "Journal" entry (file+datetree (concat org-directory "/journal/" (format-time-string "%Y")  ".org"))
+         "* %? [%^{duration|0} HOUR]\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n" :clock-resume t)
+        ("w" "Work Journal" entry (file+datetree (concat org-directory "/journal/w" (format-time-string "%Y")  ".org"))
+         "* %? [%^{duration|0} HOUR]\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n" :clock-resume t)
         ))
 
 

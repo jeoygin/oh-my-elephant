@@ -11,6 +11,9 @@
 
   (require 'keyfreq)
 
+  (setq keyfreq-file "~/.emacs.d/.emacs.keyfreq")
+  (setq keyfreq-file-lock "~/.emacs.d/.emacs.keyfreq.lock")
+
   (unless (file-exists-p (file-truename keyfreq-file))
     (with-temp-buffer
       (insert "()")

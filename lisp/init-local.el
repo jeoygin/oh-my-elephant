@@ -8,6 +8,9 @@
 (setq chinese-default-input-method 'pinyin)
 (setq chinese-pinyin-load-greatdict t)
 
+(setq org-directory "~/Projects/personal/notes/")
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+
 (diminish 'abbrev-mode)
 
 (provide 'init-local)

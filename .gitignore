@@ -49,3 +49,5 @@ site-lisp/package/
 /global_conf.pyc
 /.youdao
 /pyim
+/.emacs.keyfreq
+/notes.org
