@@ -98,9 +98,9 @@ typical word processor."
         ("n" "note" entry (file+headline "" "Notes")
          "* %? :NOTE:\n  %i\n  %a\n" :clock-resume t)
         ("j" "Journal" entry (file+datetree (concat org-directory "/journal/" (format-time-string "%Y")  ".org"))
-         "* %? [%^{duration|0} HOUR]\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n" :clock-resume t)
+         "* %? [%^{duration|0} MIN]\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
         ("w" "Work Journal" entry (file+datetree (concat org-directory "/journal/w" (format-time-string "%Y")  ".org"))
-         "* %? [%^{duration|0} HOUR]\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n" :clock-resume t)
+         "* %? [%^{duration|0} MIN]\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
         ))
 
 
