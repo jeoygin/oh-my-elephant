@@ -99,10 +99,10 @@ typical word processor."
          "* %? :NOTE:\n  %i\n  %a\n" :clock-resume t)
         ("i" "Interview" entry (file+headline (concat org-directory "/GTD/work.org") "Interviews")
          "* TODO %?\n    :LOGBOOK:\n    - Added on %U\n    :END:\n    :INFO:\n    :Location: %^{Location}\n    :Interviewer: %^{Interviewer}\n    :Interviewee: %^{Interviewee}\n    :Position: %^{Position}\n    :END:\n  %i\n  %a\n" :clock-resume t)
-        ("j" "Journal" entry (file+datetree (concat org-directory "/journal/" (format-time-string "%Y")  ".org"))
-         "* %? [%^{duration|0} MIN]\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
+        ("j" "Journal" entry (file+datetree+prompt (concat org-directory "/journal/" (format-time-string "%Y")  ".org"))
+         "* %? [%^{duration|0} MIN]\n  :LOGBOOK:\n  - Added on [%<%Y-%m-%d %H:%M %a>]\n  :END:\n  %i\n  %a\n" :clock-resume t)
         ("w" "Work Journal" entry (file+datetree (concat org-directory "/journal/w" (format-time-string "%Y")  ".org"))
-         "* %? [%^{duration|0} MIN]\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
+         "* %? [%^{duration|0} MIN]\n  :LOGBOOK:\n  - Added on [%<%Y-%m-%d %H:%M %a>]\n  :END:\n  %i\n  %a\n" :clock-resume t)
         ))
 
 
