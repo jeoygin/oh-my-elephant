@@ -16,6 +16,8 @@
          "* TODO %?\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
         ("n" "note" entry (file+headline "" "Notes")
          "* %? :NOTE:\n  %i\n  %a\n" :clock-resume t)
+        ("s" "subtask" entry (clock)
+         "* TODO %?\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
         ("i" "Interview" entry (file+headline (concat org-directory "/GTD/work.org") "Interviews")
          "* TODO %?\n    :LOGBOOK:\n    - Added on %U\n    :END:\n    :INFO:\n    :Location: %^{Location}\n    :Interviewer: %^{Interviewer}\n    :Interviewee: %^{Interviewee}\n    :Position: %^{Position}\n    :END:\n  %i\n  %a\n" :clock-resume t)
         ("j" "Journal" entry (file+datetree+prompt (concat org-directory "/journal/" (format-time-string "%Y")  ".org"))
