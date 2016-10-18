@@ -92,13 +92,14 @@ typical word processor."
 (after-load 'org
   (define-key org-mode-map (kbd "C-c C") 'org-capture))
 
-(setq org-capture-templates
-      `(("t" "todo" entry (file+headline "" "Tasks")  ; "" => org-default-notes-file
-         "* TODO %?\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
-        ("n" "note" entry (file+headline "" "Notes")
-         "* %? :NOTE:\n  %i\n  %a\n" :clock-resume t)
-        ))
-
+(unless (boundp 'org-capture-templates)
+  (setq org-capture-templates
+        `(("t" "todo" entry (file+headline "" "Tasks")  ; "" => org-default-notes-file
+           "* TODO %?\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
+          ("n" "note" entry (file+headline "" "Notes")
+           "* %? :NOTE:\n  %i\n  %a\n" :clock-resume t)
+          ))
+  )
 
 
 ;;; Refiling
