@@ -159,7 +159,7 @@ typical word processor."
                       ("@gym" . ?t) ("@outside" . ?o)
                       (:endgroup . nil)
                       ("laptop" . ?l) ("PC" . ?p) ("phone" . ?m)
-                      ("family" . ?f) ("shopping" . ?s)
+                      ("family" . ?f) ("shopping" . ?s) ("meeting" . ?m)
                       ("call" . ?c) ("errands" . ?e) ("urgent" . ?u)))
 
 
