@@ -104,6 +104,7 @@
  
 (require 'init-projectile)
 
+(idle-require 'init-reveal)
 (idle-require 'init-compile)
 (idle-require 'init-crontab)
 (idle-require 'init-textile)
