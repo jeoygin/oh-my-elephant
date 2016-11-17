@@ -1,2 +1,2 @@
-(require 'ox-reveal)
+(require-package 'ox-reveal)
 (provide 'init-reveal)
