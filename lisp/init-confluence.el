@@ -50,8 +50,22 @@
                             (longlines-restore))))))))
 
   (global-set-key "\C-xwf" 'confluence-get-page)
+  (global-set-key "\C-xws" 'confluence-search)
+  (global-set-key "\C-xwt" 'confluence-toggle-page-content-type)
 
   (add-hook 'confluence-mode-hook
+          '(lambda ()
+             (local-set-key "\C-xw" confluence-prefix-map)))
+  (add-hook 'confluence-edit-mode-hook
+          '(lambda ()
+             (local-set-key "\C-xw" confluence-prefix-map)))
+  (add-hook 'confluence-search-hook
+          '(lambda ()
+             (local-set-key "\C-xw" confluence-prefix-map)))
+  (add-hook 'confluence-xml-mode-hook
+          '(lambda ()
+             (local-set-key "\C-xw" confluence-prefix-map)))
+  (add-hook 'confluence-xml-edit-mode-hook
           '(lambda ()
              (local-set-key "\C-xw" confluence-prefix-map))))
 
