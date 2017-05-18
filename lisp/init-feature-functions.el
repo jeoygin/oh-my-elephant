@@ -1,7 +1,7 @@
 (defmacro create-init-feature-defun (feature)
-  (list 'defun (intern (concat "nutxell/init-" feature)) '()
+  (list 'defun (intern (concat "nuxell/init-" feature)) '()
     (list 'interactive)
-    (list 'message (concat "Call nutxell/init-" feature))
+    (list 'message (concat "Call nuxell/init-" feature))
     (list 'require (list 'quote (intern (concat "init-" feature))))))
 
 (dolist (file (directory-files (file-name-directory load-file-name) nil "^init-.+\\.el$"))
@@ -18,7 +18,7 @@
   (interactive)
   (if (listp features)
     (dolist (f (append feature-list '()))
-      (funcall (intern (concat "nutxell/init-" (symbol-name f)))))
+      (funcall (intern (concat "nuxell/init-" (symbol-name f)))))
     nil))
 
 (provide 'init-feature-functions)
