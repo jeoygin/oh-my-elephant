@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+#cotributor: Jeoygin Wang <jeoygin@gmail.com>
+#name: header file description
+#key: \hh
+# --
+/* Copyright (c) `(format-time-string "%Y")` ${1:wangrj}. All Rights Reserved.
+ *
+ * version: 1.0 ${2:`(format-time-string "%Y-%m-%d")`}
+ */
+
+#ifndef ${3:`(yas-choose-value (nuxell/last-sub-dir-name (buffer-file-name) 5))`}${4:`(upcase (nuxell/camelcase-to-underscore (nuxell/extract-file-name (buffer-file-name))))`_H_}
+#define $3$4
+
+
+#endif // $3$4

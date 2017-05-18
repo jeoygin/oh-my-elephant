@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+#cotributor: Jeoygin Wang <jeoygin@gmail.com>
+#name: source file description
+#key: \cc
+# --
+/* Copyright (c) `(format-time-string "%Y")` ${1:wangrj}. All Rights Reserved.
+ *
+ * version: 1.0 ${2:`(format-time-string "%Y-%m-%d")`}
+ */
+
+
