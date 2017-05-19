@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-#cotributor: Jeoygin Wang <jeoygin@gmail.com>
-#name: source file description
-#key: \cc
+# cotributor: Jeoygin Wang <jeoygin@gmail.com>
+# name: source file description
+# key: \cc
 # --
 /* Copyright (c) `(format-time-string "%Y")` ${1:wangrj}. All Rights Reserved.
  *

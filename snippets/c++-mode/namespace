@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# cotributor: Jeoygin Wang <jeoygin@gmail.com>
+# name: namespace
+# key: ns
+# --
+namespace ${1:Namespace} {
+
+          `yas/selected-text`
+
+}  // namespace $1
