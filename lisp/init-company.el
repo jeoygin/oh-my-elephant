@@ -18,8 +18,6 @@
                   company-dabbrev-other-buffers 'all))
   (global-set-key (kbd "M-C-/") 'company-complete)
   (when (and (maybe-require-package 'company-quickhelp) (display-graphic-p))
-    (after-load 'company-quickhelp
-      (define-key company-quickhelp-mode-map (kbd "M-h") nil))
     (add-hook 'company-mode-hook 'company-quickhelp-mode))
 
   (defmacro nutxell/defun-toggle-company-backend (backend)
