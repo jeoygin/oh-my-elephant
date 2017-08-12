@@ -40,6 +40,7 @@ site-lisp/package/
 /.sx/
 /org-clock-save.el
 /ditaa*.jar
+/plantuml*.jar
 /ido.last
 /recentf
 /viper

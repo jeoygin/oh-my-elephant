@@ -41,6 +41,21 @@
       (when (file-exists-p zip-temp)
         (delete-file zip-temp)))))
 
+(defun sanityinc/grab-plantuml (url jar-name)
+  "Download URL and extract JAR-NAME as `org-plantuml-jar-path'."
+  ;; TODO: handle errors
+  (message "Grabbing " jar-name " for org.")
+  (let ((zip-temp (make-temp-name "emacs-plantuml")))
+    (unwind-protect
+        (progn
+          (when (executable-find "unzip")
+            (url-copy-file url zip-temp)
+            (shell-command (concat "unzip -p " (shell-quote-argument zip-temp)
+                                   " " (shell-quote-argument jar-name) " > "
+                                   (shell-quote-argument org-plantuml-jar-path)))))
+      (when (file-exists-p zip-temp)
+        (delete-file zip-temp)))))
+
 (after-load 'ob-ditaa
   (unless (and (boundp 'org-ditaa-jar-path)
                (file-exists-p org-ditaa-jar-path))
@@ -49,6 +64,16 @@
       (setq org-ditaa-jar-path (expand-file-name jar-name (file-name-directory user-init-file)))
       (unless (file-exists-p org-ditaa-jar-path)
         (sanityinc/grab-ditaa url jar-name)))))
+
+(after-load 'ob-plantuml
+  (unless (and (> (length org-plantuml-jar-path) 0)
+               (file-exists-p org-plantuml-jar-path))
+    (message org-plantuml-jar-path)
+    (let ((jar-name "plantuml.jar")
+          (url "https://versaweb.dl.sourceforge.net/project/plantuml/1.2017.15/plantuml-jar-mit-1.2017.15.zip"))
+      (setq org-plantuml-jar-path (expand-file-name jar-name (file-name-directory user-init-file)))
+      (unless (file-exists-p org-plantuml-jar-path)
+        (sanityinc/grab-plantuml url jar-name)))))
 
 
 
@@ -375,6 +400,7 @@ typical word processor."
      (screen . nil)
      (,(if (locate-library "ob-sh") 'sh 'shell) . t)
      (sql . nil)
+     (plantuml . t)
      (sqlite . t))))
 
 
