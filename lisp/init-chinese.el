@@ -15,16 +15,16 @@
              "do" 'osx-dictionary-search-pointer))))
 
 (when (eq 'pinyin chinese-default-input-method)
-  (when (maybe-require-package 'chinese-pyim)
-    (require 'chinese-pyim)
+  (when (maybe-require-package 'pyim)
+    (require 'pyim)
 
-    (when (maybe-require-package 'chinese-pyim-basedict)
-      (chinese-pyim-basedict-enable))
+    (when (maybe-require-package 'pyim-basedict)
+      (pyim-basedict-enable))
 
     (when chinese-pinyin-load-greatdict
-      (when (maybe-require-package 'chinese-pyim-greatdict)
-        (chinese-pyim-greatdict-enable)))
+      (when (maybe-require-package 'pyim-greatdict)
+        (pyim-greatdict-enable)))
 
-    (setq default-input-method "chinese-pyim")))
+    (setq default-input-method "pyim")))
 
 (provide 'init-chinese)
