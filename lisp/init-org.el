@@ -183,7 +183,7 @@ typical word processor."
                       ("@office" . ?w) ("@home" . ?h)
                       ("@gym" . ?t) ("@outside" . ?o)
                       (:endgroup . nil)
-                      ("laptop" . ?l) ("PC" . ?p) ("phone" . ?m)
+                      ("laptop" . ?l) ("desktop" . ?d) ("phone" . ?p)
                       ("family" . ?f) ("shopping" . ?s) ("meeting" . ?m)
                       ("call" . ?c) ("errands" . ?e) ("urgent" . ?u)))
 
