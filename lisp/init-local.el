@@ -18,6 +18,8 @@
          "* %? :NOTE:\n  %i\n  %a\n" :clock-resume t)
         ("s" "subtask" entry (clock)
          "* TODO %?\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
+        ("b" "Book" entry (file+headline (concat org-directory "/GTD/learning.org") "Books")
+         "* TODO %^{Author} - %^{Title}\n  :PROPERTIES:\n  :PAGES: %^{Pages}\n  :GENRE: %^{Genre}\n  :END:\n  :LOGBOOK:\n  - Added: %U\n  :END:\n  -Recommended by %^{Recommended by}\n  %i\n" :clock-resume t)
         ("i" "Interview" entry (file+headline (concat org-directory "/GTD/work.org") "Interviews")
          "* TODO %?\n    :LOGBOOK:\n    - Added on %U\n    :END:\n    :INFO:\n    :Location: %^{Location}\n    :Interviewer: %^{Interviewer}\n    :Interviewee: %^{Interviewee}\n    :Position: %^{Position}\n    :END:\n  %i\n  %a\n" :clock-resume t)
         ("j" "Journal" entry (file+datetree+prompt (concat org-directory "/journal/" (format-time-string "%Y")  ".org"))
