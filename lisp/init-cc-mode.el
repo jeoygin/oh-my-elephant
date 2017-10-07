@@ -22,6 +22,10 @@
   (helm-gtags-mode t)
   (ycmd-mode t))
 
-(add-hook 'c-mode-common-hook 'c-mode-common-hook-setup)
+;; Common hook across all languages. It's run immediately before the language specific hook.
+(add-hook 'c-mode-common-hook
+  (lambda ()
+    (when (derived-mode-p 'c-mode 'c++-mode)
+      (c-mode-common-hook-setup))))
 
 (provide 'init-cc-mode)

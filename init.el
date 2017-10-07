@@ -115,6 +115,7 @@
 (idle-require 'init-org)
 (idle-require 'init-csv)
 (idle-require 'init-cc-mode)
+(idle-require 'init-java)
 (idle-require 'init-erlang)
 (idle-require 'init-javascript)
 (idle-require 'init-php)

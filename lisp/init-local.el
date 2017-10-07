@@ -1,5 +1,9 @@
 (setq ycmd-server-command '("python" "/Users/jeoygin/projects/git/ycm/ycmd/ycmd"))
 
+(custom-set-variables
+  '(eclim-eclipse-dirs '("/Applications/Eclipse.app/Contents/Eclipse"))
+  '(eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"))
+
 (setq tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
