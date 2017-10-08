@@ -1,6 +1,7 @@
 /url/cache
 /.emacs.desktop
 /auto-save-list
+/network-security.data
 /.session
 /session.*
 /custom.el
@@ -40,7 +41,6 @@ site-lisp/package/
 /.sx/
 /org-clock-save.el
 /ditaa*.jar
-/plantuml*.jar
 /ido.last
 /recentf
 /viper
@@ -52,3 +52,6 @@ site-lisp/package/
 /pyim
 /.emacs.keyfreq
 /notes.org
+/.uptimes.el
+/rake.cache
+/plantuml.jar

@@ -8,7 +8,10 @@
   (setq flycheck-check-syntax-automatically '(save idle-change mode-enabled)
         flycheck-idle-change-delay 3.0)
 
-  (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list))
+  (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
+
+  (when (maybe-require-package 'flycheck-color-mode-line)
+    (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)))
 
 
 (provide 'init-flycheck)

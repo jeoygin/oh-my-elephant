@@ -1,11 +1,12 @@
+;; -*- lexical-binding: t -*-
 
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
-(let ((minver "23.3"))
-  (when (version<= emacs-version minver)
+(let ((minver "24.3"))
+  (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
-(when (version<= emacs-version "24")
+(when (version< emacs-version "24.5")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
@@ -18,19 +19,18 @@
 (defconst *window-system-is-mac* (memq (window-system) '(mac ns)))
 
 ;;----------------------------------------------------------------------------
-;; Temporarily reduce garbage collection during startup
+;; Adjust garbage collection thresholds during startup, and thereafter
 ;;----------------------------------------------------------------------------
-(defconst sanityinc/initial-gc-cons-threshold gc-cons-threshold
-  "Initial value of `gc-cons-threshold' at start-up time.")
-(setq gc-cons-threshold (* 128 1024 1024))
-(add-hook 'after-init-hook
-          (lambda () (setq gc-cons-threshold sanityinc/initial-gc-cons-threshold)))
+(let ((normal-gc-cons-threshold (* 20 1024 1024))
+      (init-gc-cons-threshold (* 128 1024 1024)))
+  (setq gc-cons-threshold init-gc-cons-threshold)
+  (add-hook 'after-init-hook
+            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(require 'init-compat)
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 ;; Calls (package-initialize)
@@ -54,7 +54,7 @@
 (require-package 'project-local-variables)
 (require-package 'diminish)
 (require-package 'scratch)
-(require-package 'mwe-log-commands)
+(require-package 'command-log-mode)
 
 (require 'init-frame-hooks)
 (require 'init-xterm)
@@ -69,9 +69,6 @@
 (require 'init-ibuffer)
 (require 'init-recentf)
 (require 'init-smex)
-;; If you really prefer ido to ivy, change the comments below. I will
-;; likely remove the ido config in due course, though.
-;; (require 'init-ido)
 (require 'init-ivy)
 
 (idle-require 'init-helm)
@@ -93,7 +90,6 @@
 (idle-require 'init-clipboard)
 (idle-require 'init-editing-utils)
 (idle-require 'init-whitespace)
-(idle-require 'init-fci)
 (idle-require 'init-chinese)
 
 (idle-require 'init-gtags)
@@ -109,20 +105,21 @@
 (idle-require 'init-confluence)
 (idle-require 'init-reveal)
 (idle-require 'init-compile)
-(idle-require 'init-crontab)
+;;(idle-require 'init-crontab)
 (idle-require 'init-textile)
 (idle-require 'init-markdown)
-(idle-require 'init-org)
 (idle-require 'init-csv)
 (idle-require 'init-cc-mode)
 (idle-require 'init-java)
 (idle-require 'init-erlang)
 (idle-require 'init-javascript)
 (idle-require 'init-php)
+(idle-require 'init-org)
 (idle-require 'init-nxml)
 (idle-require 'init-html)
 (idle-require 'init-css)
 (idle-require 'init-haml)
+(idle-require 'init-http)
 (idle-require 'init-python-mode)
 (unless (version<= emacs-version "24.3")
   (idle-require 'init-haskell))
@@ -130,6 +127,11 @@
 (idle-require 'init-ruby-mode)
 (idle-require 'init-rails)
 (idle-require 'init-sql)
+(idle-require 'init-rust)
+(idle-require 'init-toml)
+(idle-require 'init-yaml)
+(idle-require 'init-docker)
+(maybe-require-package 'terraform-mode)
 
 (idle-require 'init-paredit)
 (idle-require 'init-lisp)
@@ -156,7 +158,7 @@
 (require-package 'dsvn)
 (when *is-a-mac*
   (require-package 'osx-location))
-(require-package 'regex-tool)
+(maybe-require-package 'regex-tool)
 
 (idle-require-mode 1) ;; starts loading
 ;;----------------------------------------------------------------------------
@@ -184,6 +186,10 @@
 ;; Locales (setting them earlier in this file doesn't work in X)
 ;;----------------------------------------------------------------------------
 (require 'init-locales)
+
+
+(when (maybe-require-package 'uptimes)
+  (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
 
 (provide 'init)
