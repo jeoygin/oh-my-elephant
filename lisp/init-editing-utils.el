@@ -285,8 +285,43 @@ With arg N, insert N newlines."
     (end-of-line)
     (indent-according-to-mode)))
 
-(global-set-key (kbd "C-o") 'sanityinc/open-line-with-reindent)
+(defun nuxell/smart-open-line (n)
+  "Insert N empty lines after the current line.
+ Position the cursor at its beginning, according to the current mode."
+  (interactive "p")
+  (move-end-of-line nil)
+  (newline n))
 
+(defun nuxell/smart-open-line-above (n)
+  "Insert N empty lines above the current line.
+ Position the cursor at it's beginning, according to the current mode."
+  (interactive "p")
+  (move-beginning-of-line nil)
+  (newline n)
+  (if n
+    (forward-line -n)
+    (forward-line 1))
+  (indent-according-to-mode))
+
+(defun nuxell/insert-line-above (n)
+  "Insert N newline(s) above the line containing the cursor."
+  (interactive "p")
+  (save-excursion
+    (move-beginning-of-line 1)
+    (newline n)))
+
+(defun nuxell/insert-line (n)
+  "Insert N newline(s) after the line containing the cursor."
+  (interactive "p")
+  (save-excursion
+    (move-end-of-line 1)
+    (newline n)))
+
+(global-set-key (kbd "M-RET") 'sanityinc/open-line-with-reindent)
+(global-set-key (kbd "M-j") 'nuxell/smart-open-line)
+(global-set-key (kbd "M-o") 'nuxell/smart-open-line-above)
+(global-set-key (kbd "C-M-o") 'nuxell/insert-line-above)
+(global-set-key (kbd "C-M-j") 'nuxell/insert-line)
 
 ;;----------------------------------------------------------------------------
 ;; Random line sorting
