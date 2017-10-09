@@ -1,4 +1,4 @@
-(init-features '(company))
+(init-features '(helm company gtags))
 
 (when (maybe-require-package 'eclim)
   (when (maybe-require-package 'company-emacs-eclim)
@@ -8,12 +8,10 @@
     (setq eclimd-autostart t)))
 
 (defun my-java-mode-hook ()
+  (helm-mode t)
+  (helm-gtags-mode t)
   (after-load 'eclim
     (eclim-mode t))
-  (after-load 'helm
-    (helm-mode t))
-  (after-load 'helm-gtags
-    (helm-gtags-mode t))
   (after-load 'company
     (company-mode t)))
 
