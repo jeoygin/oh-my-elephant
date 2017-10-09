@@ -36,6 +36,8 @@
          "* %? [%^{duration|0} MIN]\n  :LOGBOOK:\n  - Added on [%<%Y-%m-%d %H:%M %a>]\n  :END:\n  %i\n  %a\n" :clock-resume t)
         ))
 
+(add-to-list 'auto-mode-alist '("\\.page\\'" . org-mode))
+
 (diminish 'abbrev-mode)
 
 (provide 'init-local)
