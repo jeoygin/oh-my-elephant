@@ -4,6 +4,6 @@
   (setq sml/theme 'respectful)
   (setq sml/mode-width 0)
   (setq sml/name-width 20)
-  (sml/setup))
+  (add-hook 'after-init-hook 'sml/setup))
 
 (provide 'init-mode-line)
