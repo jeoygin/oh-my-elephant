@@ -15,6 +15,11 @@
 (setq org-directory "~/projects/personal/notes/")
 ;; Use customized variable
 ;; (setq org-agenda-files '(org-directory))
+;; customize-group org-export
+;; (setq org-export-backends '(ascii beamer html icalendar latex odt))
+;; customize-variable org-modules
+;; (setq org-modules '(org-bbdb org-bibtex org-docview org-gnus org-habit org-id org-info org-irc org-mhe org-rmail org-w3m))
+
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-capture-book-file (concat org-directory "/GTD/learning.org"))
 (setq org-capture-interview-file (concat org-directory "/GTD/work.org"))

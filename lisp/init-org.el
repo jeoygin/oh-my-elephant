@@ -5,7 +5,6 @@
 (maybe-require-package 'org-cliplink)
 
 (after-load 'org
-  (require 'org-id)
   (define-key org-mode-map (kbd "C-c l") 'org-store-link)
   (define-key org-mode-map (kbd "C-c a") 'org-agenda))
 
