@@ -33,6 +33,8 @@
 (setq org-capture-templates
       `(("t" "todo" entry (file+headline "" "Tasks")  ; "" => org-default-notes-file
          "* TODO %?\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
+        ("r" "respond" entry (file+headline "" "Mails")
+         "* NEXT Respond to %^{From} on %^{Subject}\n  SCHEDULED: %t\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %a\n" :clock-in t :clock-resume t)
         ("m" "meeting" entry (file+headline "" "Meetings")
          "* MEETING with %? :meeting:\n  :LOGBOOK:\n  - Added on %U\n  :END:\n" :clock-in t :clock-keep t)
         ("n" "note" entry (file+headline "" "Notes")

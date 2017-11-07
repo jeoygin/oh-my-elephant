@@ -154,9 +154,9 @@ typical word processor."
 ;;; To-do settings
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "|" "DONE(d!/!)")
-              (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)" "MEETING")
-              (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)")))
+      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
+              (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
+              (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING")))
       org-todo-repeat-to-state "NEXT")
 
 (setq org-todo-keyword-faces
@@ -213,11 +213,15 @@ typical word processor."
                    ((org-agenda-overriding-header "Stuck Projects")
                     (org-agenda-tags-todo-honor-ignore-options t)
                     (org-tags-match-list-sublevels t)
-                    (org-agenda-todo-ignore-scheduled 'future)))
+                    (org-agenda-todo-ignore-deadlines t)
+                    (org-agenda-todo-ignore-with-date t)
+                    (org-agenda-todo-ignore-scheduled t)))
             (tags-todo "-INBOX"
                        ((org-agenda-overriding-header "Next Actions")
                         (org-agenda-tags-todo-honor-ignore-options t)
-                        (org-agenda-todo-ignore-scheduled 'future)
+                        (org-agenda-todo-ignore-scheduled t)
+                        (org-agenda-todo-ignore-deadlines t)
+                        (org-agenda-todo-ignore-with-date t)
                         (org-agenda-skip-function
                          '(lambda ()
                             (or (org-agenda-skip-subtree-if 'todo '("HOLD" "WAITING"))
@@ -233,7 +237,9 @@ typical word processor."
             (tags-todo "-INBOX/-NEXT"
                        ((org-agenda-overriding-header "Orphaned Tasks")
                         (org-agenda-tags-todo-honor-ignore-options t)
-                        (org-agenda-todo-ignore-scheduled 'future)
+                        (org-agenda-todo-ignore-scheduled t)
+                        (org-agenda-todo-ignore-deadlines t)
+                        (org-agenda-todo-ignore-with-date t)
                         (org-agenda-skip-function
                          '(lambda ()
                             (or (org-agenda-skip-subtree-if 'todo '("PROJECT" "HOLD" "WAITING" "DELEGATED"))
@@ -244,13 +250,17 @@ typical word processor."
             (tags-todo "/WAITING"
                        ((org-agenda-overriding-header "Waiting")
                         (org-agenda-tags-todo-honor-ignore-options t)
-                        (org-agenda-todo-ignore-scheduled 'future)
+                        (org-agenda-todo-ignore-scheduled t)
+                        (org-agenda-todo-ignore-deadlines t)
+                        (org-agenda-todo-ignore-with-date t)
                         (org-agenda-sorting-strategy
                          '(category-keep))))
             (tags-todo "/DELEGATED"
                        ((org-agenda-overriding-header "Delegated")
                         (org-agenda-tags-todo-honor-ignore-options t)
-                        (org-agenda-todo-ignore-scheduled 'future)
+                        (org-agenda-todo-ignore-scheduled t)
+                        (org-agenda-todo-ignore-deadlines t)
+                        (org-agenda-todo-ignore-with-date t)
                         (org-agenda-sorting-strategy
                          '(category-keep))))
             (tags-todo "-INBOX"
