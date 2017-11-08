@@ -20,6 +20,8 @@
 ;; customize-variable org-modules
 ;; (setq org-modules '(org-bbdb org-bibtex org-docview org-gnus org-habit org-id org-info org-irc org-mhe org-rmail org-w3m))
 
+(setq org-clock-history-length 25)
+
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-capture-book-file (concat org-directory "/GTD/learning.org"))
 (setq org-capture-interview-file (concat org-directory "/GTD/work.org"))
