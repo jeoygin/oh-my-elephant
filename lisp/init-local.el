@@ -48,7 +48,7 @@
         ("i" "Issue" entry (file+headline org-capture-issue-file "Issues")
          "* TODO %^{ISSUE_ID}: %?\n  :PROPERTIES:\n  :CUSTOM_ID: %\\1\n  :URL: %^{URL}/%\\1\n  :END:\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n" :clock-resume t)
         ("j" "Journal" entry (file+datetree+prompt org-capture-journal-file)
-         "* %? [%^{duration|0} MIN]\n  :LOGBOOK:\n  - Added on [%<%Y-%m-%d %H:%M %a>]\n  :END:\n  %i\n  %a\n" :clock-in t :clock-resume t)
+         "* %? [%^{duration|0} MIN]\n  :LOGBOOK:\n  - Added on [%<%Y-%m-%d %H:%M %a>]\n  :END:\n  %i\n  %a\n" :clock-resume t)
         ("w" "Work Journal" entry (file+datetree org-capture-work-journal-file)
          "* %? [%^{duration|0} MIN]\n  :LOGBOOK:\n  - Added on [%<%Y-%m-%d %H:%M %a>]\n  :END:\n  %i\n  %a\n" :clock-in t :clock-resume t)
         ))
