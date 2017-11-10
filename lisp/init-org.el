@@ -164,20 +164,9 @@ typical word processor."
               ("PROJECT" :inherit font-lock-string-face))))
 
 
-;;; Tag settins
-
-(setq org-tag-alist '((:startgroup . nil)
-                      ("@office" . ?w) ("@home" . ?h)
-                      ("@gym" . ?t) ("@outside" . ?o)
-                      (:endgroup . nil)
-                      ("laptop" . ?l) ("desktop" . ?d) ("phone" . ?p)
-                      ("family" . ?f) ("shopping" . ?s) ("meeting" . ?m)
-                      ("call" . ?c) ("errands" . ?e) ("urgent" . ?u)))
-
-
 ;;; Agenda views
 
-(setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
+(setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 5))
 
 
 (let ((active-project-match "-INBOX/PROJECT"))

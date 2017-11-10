@@ -32,6 +32,14 @@
 (setq org-id-link-to-org-use-id 'use-existing)
 (setq org-id-locations-file "~/Dropbox/org/org-id-locations")
 
+(setq org-tag-alist '((:startgroup . nil)
+                      ("@office" . ?w) ("@home" . ?h)
+                      ("@gym" . ?t) ("@outside" . ?o)
+                      (:endgroup . nil)
+                      ("laptop" . ?l) ("desktop" . ?d) ("phone" . ?p)
+                      ("family" . ?f) ("shopping" . ?s) ("meeting" . ?m)
+                      ("call" . ?c) ("errands" . ?e) ("urgent" . ?u)))
+
 (setq org-capture-templates
       `(("t" "todo" entry (file+headline "" "Tasks")  ; "" => org-default-notes-file
          "* TODO %?\n  :LOGBOOK:\n  - Added on %U\n  :END:\n  %i\n  %a\n" :clock-resume t)
