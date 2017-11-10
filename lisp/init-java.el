@@ -15,6 +15,6 @@
   (after-load 'company
     (company-mode t)))
 
-(add-hook 'java-mode-hook 'my-java-mode-hook)
+;; (add-hook 'java-mode-hook 'my-java-mode-hook)
 
 (provide 'init-java)
