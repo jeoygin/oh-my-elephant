@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# cotributor: Jeoygin Wang <jeoygin@gmail.com>
+# name: hakyll page header 
+# key: \hph
+# --
+---
+title: $1
+tags:
+description: $2
+date: `(format-time-string "%Y-%m-%d %H:%M:%S %Z")`
+---
+
