@@ -149,6 +149,7 @@
 (idle-require 'init-folding)
 (idle-require 'init-dash)
 (idle-require 'init-ledger)
+(idle-require 'init-email)
 
 ;; Extra packages which don't require any configuration
 
