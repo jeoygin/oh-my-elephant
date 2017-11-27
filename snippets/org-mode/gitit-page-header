@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# cotributor: Jeoygin Wang <jeoygin@gmail.com>
+# name: gitit page header 
+# key: \gph
+# --
+---
+format: ${1:org}
+...
+
