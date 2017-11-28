@@ -166,7 +166,7 @@ typical word processor."
 
 ;;; Agenda views
 
-(setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 5))
+(setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 5 :fileskip0 t))
 
 
 (let ((active-project-match "-INBOX/PROJECT"))
