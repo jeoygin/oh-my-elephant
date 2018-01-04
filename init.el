@@ -124,6 +124,7 @@
 (unless (version<= emacs-version "24.3")
   (idle-require 'init-haskell))
 (idle-require 'init-elm)
+(require 'init-purescript)
 (idle-require 'init-ruby-mode)
 (idle-require 'init-rails)
 (idle-require 'init-sql)
@@ -131,7 +132,7 @@
 (idle-require 'init-toml)
 (idle-require 'init-yaml)
 (idle-require 'init-docker)
-(maybe-require-package 'terraform-mode)
+(idle-require 'init-terraform)
 
 (idle-require 'init-paredit)
 (idle-require 'init-lisp)
@@ -160,6 +161,7 @@
 (when *is-a-mac*
   (require-package 'osx-location))
 (maybe-require-package 'regex-tool)
+(maybe-require-package 'dotenv-mode)
 
 (idle-require-mode 1) ;; starts loading
 ;;----------------------------------------------------------------------------
