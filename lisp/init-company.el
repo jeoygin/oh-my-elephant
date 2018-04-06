@@ -8,9 +8,9 @@
   (add-hook 'after-init-hook 'global-company-mode)
   (after-load 'company
     (diminish 'company-mode " ⓐ")
-    (define-key company-mode-map (kbd "M-/") 'company-complete)
-    (define-key company-active-map (kbd "M-/") 'company-select-next)
     (setq company-idle-delay 0.8)
+    (define-key company-mode-map (kbd "M-/") 'company-complete)
+    (define-key company-active-map (kbd "M-/") 'company-other-backend)
     (define-key company-active-map (kbd "C-n") 'company-select-next)
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (setq-default company-dabbrev-other-buffers 'all
@@ -36,7 +36,7 @@
 ;; Suspend page-break-lines-mode while company menu is active
 ;; (see https://github.com/company-mode/company-mode/issues/416)
 (after-load 'company
-  (after-load 'page-break-lines-mode
+  (after-load 'page-break-lines
     (defvar sanityinc/page-break-lines-on-p nil)
     (make-variable-buffer-local 'sanityinc/page-break-lines-on-p)
 

@@ -28,4 +28,4 @@
     (when (derived-mode-p 'c-mode 'c++-mode)
       (c-mode-common-hook-setup))))
 
-(provide 'init-cc-mode)
+(provide 'init-cc)

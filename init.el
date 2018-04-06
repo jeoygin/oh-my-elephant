@@ -1,4 +1,5 @@
 ;; -*- lexical-binding: t -*-
+(setq debug-on-error t)
 
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
@@ -51,7 +52,6 @@
 ;;----------------------------------------------------------------------------
 
 (require-package 'wgrep)
-(require-package 'project-local-variables)
 (require-package 'diminish)
 (require-package 'scratch)
 (require-package 'command-log-mode)
@@ -109,7 +109,7 @@
 (idle-require 'init-textile)
 (idle-require 'init-markdown)
 (idle-require 'init-csv)
-(idle-require 'init-cc-mode)
+(idle-require 'init-cc)
 (idle-require 'init-java)
 (idle-require 'init-erlang)
 (idle-require 'init-javascript)
@@ -120,12 +120,12 @@
 (idle-require 'init-css)
 (idle-require 'init-haml)
 (idle-require 'init-http)
-(idle-require 'init-python-mode)
+(idle-require 'init-python)
 (unless (version<= emacs-version "24.3")
   (idle-require 'init-haskell))
 (idle-require 'init-elm)
 (require 'init-purescript)
-(idle-require 'init-ruby-mode)
+(idle-require 'init-ruby)
 (idle-require 'init-rails)
 (idle-require 'init-sql)
 (idle-require 'init-rust)
@@ -133,6 +133,7 @@
 (idle-require 'init-yaml)
 (idle-require 'init-docker)
 (idle-require 'init-terraform)
+(maybe-require-package 'nginx-mode)
 
 (idle-require 'init-paredit)
 (idle-require 'init-lisp)
@@ -160,17 +161,22 @@
 (require-package 'dsvn)
 (when *is-a-mac*
   (require-package 'osx-location))
-(maybe-require-package 'regex-tool)
+(unless (eq system-type 'windows-nt)
+  (maybe-require-package 'daemons))
 (maybe-require-package 'dotenv-mode)
 
+(when (maybe-require-package 'uptimes)
+  (setq-default uptimes-keep-count 200)
+  (add-hook 'after-init-hook (lambda () (require 'uptimes))))
+
 (idle-require-mode 1) ;; starts loading
+
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
 (require 'server)
 (unless (server-running-p)
   (server-start))
-
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
@@ -180,19 +186,16 @@
 
 
 ;;----------------------------------------------------------------------------
-;; Allow users to provide an optional "init-local" containing personal settings
-;;----------------------------------------------------------------------------
-(require 'init-local nil t)
-
-
-;;----------------------------------------------------------------------------
 ;; Locales (setting them earlier in this file doesn't work in X)
 ;;----------------------------------------------------------------------------
 (require 'init-locales)
 
 
-(when (maybe-require-package 'uptimes)
-  (add-hook 'after-init-hook (lambda () (require 'uptimes))))
+;;----------------------------------------------------------------------------
+;; Allow users to provide an optional "init-local" containing personal settings
+;;----------------------------------------------------------------------------
+(require 'init-local nil t)
+
 
 
 (provide 'init)
