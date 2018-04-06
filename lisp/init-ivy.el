@@ -38,6 +38,7 @@
   (setq-default counsel-mode-override-describe-bindings t)
   (when (maybe-require-package 'diminish)
     (after-load 'counsel
+      (global-set-key (kbd "M-y") 'counsel-yank-pop)
       (diminish 'counsel-mode)))
   (require-package 'counsel-projectile)
   (add-hook 'after-init-hook 'counsel-mode)
