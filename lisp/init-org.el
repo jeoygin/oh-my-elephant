@@ -1,3 +1,5 @@
+(maybe-require-package 'org-plus-contrib)
+
 (when *is-a-mac*
   (maybe-require-package 'grab-mac-link))
 
