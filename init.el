@@ -152,6 +152,7 @@
 (idle-require 'init-dash)
 (idle-require 'init-ledger)
 (idle-require 'init-email)
+(idle-require 'init-elfeed)
 
 ;; Extra packages which don't require any configuration
 
