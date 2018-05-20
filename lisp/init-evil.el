@@ -1,7 +1,8 @@
 (require-package 'evil)
 
 (after-load 'evil
-  (setq evil-default-state 'normal)
+  (setq evil-default-state 'insert)
+  (add-to-list 'evil-emacs-state-modes 'dired-mode)
   (evil-mode 1)
   (define-key evil-insert-state-map "\C-a" 'beginning-of-line)
   (define-key evil-insert-state-map "\C-e" 'end-of-line)
