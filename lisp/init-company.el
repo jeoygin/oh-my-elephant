@@ -1,3 +1,7 @@
+;;; init-company.el --- Completion with company -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;; WAITING: haskell-mode sets tags-table-list globally, breaks tags-completion-at-point-function
 ;; TODO Default sort order should place [a-z] before punctuation
 
@@ -7,6 +11,8 @@
 (when (maybe-require-package 'company)
   (add-hook 'after-init-hook 'global-company-mode)
   (after-load 'company
+    (dolist (backend '(company-eclim company-semantic))
+      (delq backend company-backends))
     (diminish 'company-mode " ⓐ")
     (setq company-idle-delay 0.8)
     (define-key company-mode-map (kbd "M-/") 'company-complete)
@@ -37,8 +43,7 @@
 ;; (see https://github.com/company-mode/company-mode/issues/416)
 (after-load 'company
   (after-load 'page-break-lines
-    (defvar sanityinc/page-break-lines-on-p nil)
-    (make-variable-buffer-local 'sanityinc/page-break-lines-on-p)
+    (defvar-local sanityinc/page-break-lines-on-p nil)
 
     (defun sanityinc/page-break-lines-disable (&rest ignore)
       (when (setq sanityinc/page-break-lines-on-p (bound-and-true-p page-break-lines-mode))
@@ -49,9 +54,9 @@
         (page-break-lines-mode 1)))
 
     (add-hook 'company-completion-started-hook 'sanityinc/page-break-lines-disable)
-    (add-hook 'company-completion-finished-hook 'sanityinc/page-break-lines-maybe-reenable)
-    (add-hook 'company-completion-cancelled-hook 'sanityinc/page-break-lines-maybe-reenable)))
+    (add-hook 'company-after-completion-hook 'sanityinc/page-break-lines-maybe-reenable)))
 
 
 
 (provide 'init-company)
+;;; init-company.el ends here

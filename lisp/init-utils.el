@@ -1,3 +1,7 @@
+;;; init-utils.el --- Elisp helper functions and commands -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (if (fboundp 'with-eval-after-load)
     (defalias 'after-load 'with-eval-after-load)
   (defmacro after-load (feature &rest body)
@@ -102,3 +106,4 @@ Repeated invocations toggle between the two most recently open buffers."
 (global-set-key (kbd "C-c <SPC>") 'switch-to-previous-buffer)
 
 (provide 'init-utils)
+;;; init-utils.el ends here
